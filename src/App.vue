@@ -5,6 +5,7 @@
     questionsAnswered < questions.length" 
     :questions="questions" 
     :questionsAnswered="questionsAnswered"
+    @question-answered="questionAnswered"
   />
   <results v-else />
 
@@ -25,6 +26,7 @@ import Results from './components/Results.vue';
     data() {
       return {
         questionsAnswered: 0,
+        totalCorrect: 0,
         questions: [
           {
             q: 'What is 2 + 2?',
@@ -101,7 +103,16 @@ import Results from './components/Results.vue';
           }
         ]
       }
-    }
+    },
+    methods: {
+      questionAnswered(is_correct) {
+        if (is_correct) {
+          this.totalCorrect++;
+        }
+
+        this.questionsAnswered++;
+      },
+    },
   }
 </script>
 
