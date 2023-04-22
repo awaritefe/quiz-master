@@ -8,7 +8,6 @@
     </transition>
     <button type="button" class="reset-btn" @click.prevent="reset"
       v-if="questionsAnswered === questions.length">Reset</button>
-
   </div>
 </template>
 
